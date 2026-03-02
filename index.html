@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Her - 8/3 💖</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Nunito", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        transition: 0.8s;
+      }
+
+      /* INTRO */
+      .intro {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        z-index: 20;
+        transition: 1.5s;
+      }
+
+      .intro h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        opacity: 0;
+        animation: fadeText 2s forwards;
+      }
+
+      .intro p {
+        margin-top: 15px;
+        opacity: 0;
+        animation: fadeText 2s 1.5s forwards;
+      }
+
+      .start-btn {
+        margin-top: 30px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        background: #ff4d88;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeText 2s 3s forwards;
+      }
+
+      @keyframes fadeText {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* FLOATING NAME */
+      .floating-name {
+        position: absolute;
+        font-family: "Playfair Display", serif;
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 22px;
+        white-space: nowrap;
+        animation: floatName linear forwards;
+        pointer-events: none;
+      }
+
+      @keyframes floatName {
+        0% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.3;
+        }
+        90% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(-20vh);
+          opacity: 0;
+        }
+      }
+
+      /* MAIN CARD */
+      .card {
+        background: rgba(255, 255, 255, 0.92);
+        padding: 40px 30px;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 420px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        display: none;
+        z-index: 5;
+      }
+
+      .card h1 {
+        font-family: "Playfair Display", serif;
+        color: #d63384;
+        margin-bottom: 15px;
+      }
+
+      .content-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .primary {
+        background: #ff69b4;
+        color: white;
+      }
+
+      .music-btn {
+        background: #f1f1f1;
+        color: #d63384;
+        font-size: 13px;
+        opacity: 0.85;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* MODAL */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s;
+        z-index: 10;
+      }
+
+      .modal.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background: white;
+        color: #333;
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 350px;
+        width: 90%;
+        text-align: center;
+        animation: fadeText 0.5s ease;
+      }
+
+      .modal-content h2 {
+        font-family: "Playfair Display", serif;
+        color: #d63384;
+        margin-bottom: 10px;
+      }
+
+      .close {
+        margin-top: 15px;
+        cursor: pointer;
+        color: #ff69b4;
+        font-weight: 600;
+      }
+
+      /* HEART FIREWORK */
+      .heart {
+        position: absolute;
+        color: #ff4d6d;
+        font-size: 20px;
+        animation: fly 2s ease-out forwards;
+      }
+
+      @keyframes fly {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+      }
+
+      /* FLOWER */
+      .flower {
+        position: absolute;
+        top: -50px;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+
+      /* NEON */
+      .neon {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+        box-shadow:
+          0 0 15px #ff69b4,
+          0 0 30px #ff69b4;
+        animation: float 6s linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 480px) {
+        .card {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .music-btn {
+          margin-top: 20px;
+          align-self: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- INTRO -->
+    <div class="intro" id="intro">
+      <h1>Ngày 8/3 này...</h1>
+      <p>Anh có điều muốn gửi đến những người phụ nữ đặc biệt 💖</p>
+      <button class="start-btn" onclick="startExperience()">
+        Mở Điều Đặc Biệt
+      </button>
+    </div>
+
+    <!-- MAIN -->
+    <div class="card" id="mainCard">
+      <h1>Happy Women's Day 💐</h1>
+      <p>Chúc một ngày thật dịu dàng và tràn đầy yêu thương.</p>
+
+      <div class="content-buttons">
+        <button class="btn primary" onclick="openLetter('em')">
+          💖 Cho Em
+        </button>
+        <button class="btn primary" onclick="openLetter('me')">
+          🌷 Cho Mẹ
+        </button>
+      </div>
+
+      <button class="btn music-btn" onclick="toggleMusic()">🎵 Nhạc</button>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const girlName = "Tên Cô Ấy"; // 🔥 ĐỔI TÊN Ở ĐÂY
+      const music = document.getElementById("bgMusic");
+
+      /* START */
+      function startExperience() {
+        document.getElementById("intro").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("intro").style.display = "none";
+          document.body.style.background =
+            "linear-gradient(135deg,#fff0f5,#ffe4ec)";
+          document.getElementById("mainCard").style.display = "block";
+          music.play();
+        }, 1500);
+      }
+
+      function toggleMusic() {
+        music.paused ? music.play() : music.pause();
+      }
+
+      /* FLOATING NAME */
+      function createFloatingName() {
+        const name = document.createElement("div");
+        name.className = "floating-name";
+        name.innerText = girlName;
+        name.style.left = Math.random() * 90 + "vw";
+        name.style.animationDuration = 10 + Math.random() * 10 + "s";
+        document.body.appendChild(name);
+        setTimeout(() => name.remove(), 20000);
+      }
+      setInterval(createFloatingName, 2000);
+
+      /* FLOWER */
+      function createFlower() {
+        const f = document.createElement("div");
+        f.className = "flower";
+        f.innerHTML = "🌸";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.animationDuration = 4 + Math.random() * 4 + "s";
+        document.body.appendChild(f);
+        setTimeout(() => f.remove(), 8000);
+      }
+      setInterval(createFlower, 500);
+
+      /* NEON */
+      function createNeon() {
+        const n = document.createElement("div");
+        n.className = "neon";
+        n.style.left = Math.random() * 100 + "vw";
+        n.style.bottom = "0px";
+        document.body.appendChild(n);
+        setTimeout(() => n.remove(), 6000);
+      }
+      setInterval(createNeon, 300);
+
+      /* BACKGROUND CLICK CHANGE */
+      const backgrounds = [
+        "linear-gradient(135deg,#fff0f5,#ffe4ec)",
+        "linear-gradient(135deg,#ffdde1,#ee9ca7)",
+        "linear-gradient(135deg,#a18cd1,#fbc2eb)",
+      ];
+      let currentBg = 0;
+      document.body.addEventListener("click", function (e) {
+        if (!e.target.closest(".card") && !e.target.closest(".modal")) {
+          currentBg = (currentBg + 1) % backgrounds.length;
+          document.body.style.background = backgrounds[currentBg];
+        }
+      });
+
+      /* LETTERS */
+      function openLetter(type) {
+        const modal = document.getElementById("modal");
+        const content = document.getElementById("modalContent");
+
+        if (type === "em") {
+          content.innerHTML = `
+<h2>Gửi Em 💖</h2>
+<p>Cô gái ơi, em hãy hạnh phúc nhé. Mọi chuyện rồi sẽ qua, cái cần là em luôn bình an. Sớm bình phục ổn lại nè.
+     Hãy rực rỡ như một đóa hoa 💖 </p>
+<div class="close" onclick="closeModal()">Đóng</div>
+`;
+        } else {
+          content.innerHTML = `
+<h2>Gửi Mẹ Em 🌷</h2>
+<p>Cảm ơn mẹ em đã nuôi dưỡng  
+một người con gái tuyệt vời như vậy.  
+Chúc mẹ luôn mạnh khỏe và bình an.</p>
+<div class="close" onclick="closeModal()">Đóng</div>
+`;
+        }
+
+        modal.classList.add("active");
+        heartFirework();
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+      }
+
+      function heartFirework() {
+        for (let i = 0; i < 20; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "💖";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = Math.random() * 50 + 50 + "vh";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 2000);
+        }
+      }
+    </script>
+  </body>
+</html>
