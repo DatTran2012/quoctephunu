@@ -269,6 +269,24 @@
         }
       }
 
+      /* FOOTER */
+      .footer {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        z-index: 6;
+        pointer-events: none;
+        letter-spacing: 1px;
+      }
+
+      .footer span {
+        color: #ffb6d9;
+        font-weight: 600;
+      }
+
       /* RESPONSIVE */
       @media (max-width: 480px) {
         .card {
@@ -280,21 +298,24 @@
           margin-top: 20px;
           align-self: center;
         }
+
+        .footer {
+          font-size: 12px;
+          bottom: 10px;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- INTRO -->
     <div class="intro" id="intro">
       <h1>Ngày 8/3 này...</h1>
-      <p>Anh có điều muốn gửi đến những người phụ nữ đặc biệt 💖</p>
+      <p>Anh có điều muốn gửi đến hai người phụ nữ đặc biệt 💖</p>
       <button class="start-btn" onclick="startExperience()">
         Mở Điều Đặc Biệt
       </button>
     </div>
 
-    <!-- MAIN -->
     <div class="card" id="mainCard">
       <h1>Happy Women's Day 💐</h1>
       <p>Chúc một ngày thật dịu dàng và tràn đầy yêu thương.</p>
@@ -311,17 +332,18 @@
       <button class="btn music-btn" onclick="toggleMusic()">🎵 Nhạc</button>
     </div>
 
-    <!-- MODAL -->
     <div class="modal" id="modal">
       <div class="modal-content" id="modalContent"></div>
     </div>
+
+    <div class="footer">made with 💖 by <span>chàng IT khờ của em</span></div>
 
     <audio id="bgMusic" loop>
       <source src="music.mp3" type="audio/mpeg" />
     </audio>
 
     <script>
-      const girlName = "Tên Cô Ấy"; // 🔥 ĐỔI TÊN Ở ĐÂY
+      const girlName = "Tên Cô Ấy"; // 👉 ĐỔI TÊN Ở ĐÂY
       const music = document.getElementById("bgMusic");
 
       /* START */
@@ -397,15 +419,15 @@
         if (type === "em") {
           content.innerHTML = `
 <h2>Gửi Em 💖</h2>
-<p>8/3 vui vẻ nhé em.
-Anh biết mình từng làm em buồn và mất niềm tin. Anh xin lỗi.
-Chúc em luôn được yêu thương và bình yên. </p>
+<p>Dạo gần đây anh đang học cách lấy lại niềm tin – bằng sự kiên nhẫn và bằng việc làm được những điều mình đã hứa.
+  Từng ngày một, từng chút một.
+  Chúc em luôn mạnh khỏe và bình an.</p>
 <div class="close" onclick="closeModal()">Đóng</div>
 `;
         } else {
           content.innerHTML = `
-<h2>Gửi Mẹ Em 🌷</h2>
-<p>Cảm ơn mẹ em đã nuôi dưỡng  
+<h2>Gửi Mẹ 🌷</h2>
+<p>Cảm ơn mẹ đã nuôi dưỡng  
 một người con gái tuyệt vời như vậy.  
 Chúc mẹ luôn mạnh khỏe và bình an.</p>
 <div class="close" onclick="closeModal()">Đóng</div>
